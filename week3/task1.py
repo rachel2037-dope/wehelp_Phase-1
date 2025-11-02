@@ -13,9 +13,9 @@ list2 = data_english["list"]
 result_chinese = []
 result_english = []
 for hotel in list1:
-    result_chinese.append({"ChineseName": hotel['旅宿名稱'], "ChineseAddress": hotel['地址'], "Phone": hotel['電話或手機號碼'], "RoomCount": int(hotel['房間數'])})
+    result_chinese.append({"id": hotel['_id'], "ChineseName": hotel['旅宿名稱'], "ChineseAddress": hotel['地址'], "Phone": hotel['電話或手機號碼'], "RoomCount": int(hotel['房間數'])})
 for hotel in list2:
-    result_english.append({"EnglishName": hotel['hotel name'], "EnglishAddress": hotel['address'], "Phone": hotel['tel']})
+    result_english.append({"id": hotel['_id'], "EnglishName": hotel['hotel name'], "EnglishAddress": hotel['address'], "Phone": hotel['tel']})
 
 # 抽行政區，同時每筆依行政區，累計{'ＸＸ區': {'hotels': , 'rooms': }}字典
 districts = {}
@@ -40,7 +40,7 @@ for r in result_english:
 merge = []
 for ch in result_chinese:
     for eg in result_english:
-        if ch["Phone"] == eg["Phone"]:
+        if ch['id'] == eg['id']:
             merge.append([ch["ChineseName"], eg["EnglishName"], ch['ChineseAddress'], eg["EnglishAddress"], ch["Phone"], ch["RoomCount"]])
 
 # 輸出hotels.csv
