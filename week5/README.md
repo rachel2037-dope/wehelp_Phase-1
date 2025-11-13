@@ -1,5 +1,5 @@
 # Week 5 
-## Task 2 – Create database and table in your MySQL server
+## Task 2 : Create database and table in your MySQL server
 ```sql
 CREATE DATABASE IF NOT EXISTS website
   DEFAULT CHARACTER SET utf8mb4
@@ -15,4 +15,7 @@ CREATE TABLE member (
   time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
+```
 ![Create a new database named website. Create a new table named member](./images/task2.png)
+
+## Task 3 : SQL CRUD
