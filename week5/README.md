@@ -1,6 +1,6 @@
 # Week 5 
 ## Task 2 : Create database and table in your MySQL server
-```sql
+```
 CREATE DATABASE IF NOT EXISTS website
   DEFAULT CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
@@ -16,6 +16,19 @@ CREATE TABLE member (
   PRIMARY KEY (id)
 );
 ```
-![Create a new database named website. Create a new table named member](./images/task2.png)
+![Create a new database named website and a new table named member](./images/task2.png)
 
 ## Task 3 : SQL CRUD
+### 3-1
+```
+mysql> INSERT INTO member (name, username, password, follower_count)
+    -> VALUES
+    -> ('test', 'test@test.com', 'test', 3),
+    -> ('Rachel', 'Rachel@test.com', 'pw1', 4),
+    -> ('Monica', 'Monica@test.com', 'pw2', 7),
+    -> ('Chandler', 'Chandler@test.com', 'pw3', 2),
+    -> ('Ross', 'Ross@test.com', 'pw4', 1);
+```
+![Insert 5 rows](./images/task3-1.png)
+
+###3-2
