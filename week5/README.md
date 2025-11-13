@@ -15,4 +15,4 @@ CREATE TABLE member (
   time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
-!(./images/task2.png)
+![Create a new database named website. Create a new table named member](./images/task2.png)
