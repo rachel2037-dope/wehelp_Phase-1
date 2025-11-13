@@ -29,4 +29,4 @@ mysql> INSERT INTO member (name, username, password, follower_count)
 ```
 ![Insert 5 rows](./images/task3-1.png)
 
-###3-2
+### 3-2
