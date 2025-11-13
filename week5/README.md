@@ -1,20 +1,18 @@
 # Week 5 
 ## Task 2 : Create database and table in your MySQL server
 ```
-CREATE DATABASE IF NOT EXISTS website
-  DEFAULT CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-USE website;
+mysql> CREATE DATABASE IF NOT EXISTS website
+    -> USE website;
 
-CREATE TABLE member (
-  id INT UNSIGNED AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  username VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  follower_count INT UNSIGNED NOT NULL DEFAULT 0,
-  time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (id)
-);
+mysql> CREATE TABLE member(
+    ->   id INT UNSIGNED AUTO_INCREMENT,
+    ->   name VARCHAR(255) NOT NULL,
+    ->   username VARCHAR(255) NOT NULL,
+    ->   password VARCHAR(255) NOT NULL,
+    ->   follower_count INT UNSIGNED NOT NULL DEFAULT 0,
+    ->   time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ->   PRIMARY KEY (id)
+    -> );
 ```
 ![Create a new database named website and a new table named member](./images/task2.png)
 
