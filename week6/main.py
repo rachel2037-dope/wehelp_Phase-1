@@ -25,14 +25,14 @@ def get_connection():
     )
 
 @app.get("/") # 宣告一條路由：當有人對 / 發 GET 請求時，呼叫這個函式處理並回應
-async def index(request: Request):
+def index(request: Request):
     context = {
         "request": request # TemplateResponse內部強制要求context["request"]存在，而且要是一個 Request 物件
     }
     return templates.TemplateResponse("index.html", context) # 用 TemplateResponse 把模板 + 資料組合起來
 
 @app.post("/signup")
-async def signup(
+def signup(
     # request: Request, 
     name: str = Form(""), 
     email: str = Form(""), 
@@ -60,7 +60,7 @@ async def signup(
     return RedirectResponse(url="/", status_code=303)
 
 @app.post("/login")
-async def login(
+def login(
     request: Request, 
     email: str = Form(""), 
     password: str = Form("")
@@ -90,7 +90,7 @@ async def login(
     return RedirectResponse(url="/member", status_code=303)
 
 @app.get("/member")
-async def member(request: Request):
+def member(request: Request):
     id = request.session.get("id")
     if not id: # 檢查 session 裡有沒有 id
         return RedirectResponse(url="/", status_code=303)
@@ -118,7 +118,7 @@ async def member(request: Request):
     return templates.TemplateResponse("member.html", context)
 
 @app.post("/createMessage")
-async def createMessage(request:Request, content: str = Form("")):
+def createMessage(request:Request, content: str = Form("")):
     id = request.session.get("id")
     if not id:
         return RedirectResponse(url="/", status_code=303)
@@ -136,7 +136,7 @@ async def createMessage(request:Request, content: str = Form("")):
     return RedirectResponse(url="/member", status_code=303)
 
 @app.post("/deleteMessage")
-async def deleteMessage(
+def deleteMessage(
     request: Request, 
     message_id: int = Form("")
 ):
@@ -157,7 +157,7 @@ async def deleteMessage(
 
 
 @app.get("/ohoh")
-async def ohoh(request: Request, msg: str = ""):
+def ohoh(request: Request, msg: str = ""):
     context = {
         "request": request,
         "message": msg
@@ -165,7 +165,7 @@ async def ohoh(request: Request, msg: str = ""):
     return templates.TemplateResponse("ohoh.html", context)
 
 @app.get("/logout")
-async def logout(request: Request):
+def logout(request: Request):
     request.session.clear()
     return RedirectResponse(url="/", status_code=303)
 
